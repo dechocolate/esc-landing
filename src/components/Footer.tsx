@@ -12,12 +12,24 @@ export const Footer = () => {
             href="/"
             className="font-bold text-xl flex"
           >
-            <LogoIcon />
-            ShadcnUI/React
+            CLASSY
           </a>
+          <div className="mt-4">
+            사업자 등록번호 794-62-00743
+          </div>
+          <div>
+            서울특별시 강남구 테헤란로70길 12, 402호
+          </div>
+          <div>
+            hel p@classy.city
+          </div>
+          <div>
+            대표전화 070-8094-0237
+          </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+
+        {/* <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Follow US</h3>
           <div>
             <a
@@ -147,10 +159,10 @@ export const Footer = () => {
               Twitch
             </a>
           </div>
-        </div>
+        </div> */}
       </section>
 
-      <section className="container pb-14 text-center">
+      {/* <section className="container pb-14 text-center">
         <h3>
           &copy; 2024 Landing page made by{" "}
           <a
@@ -162,7 +174,7 @@ export const Footer = () => {
             Leo Miranda
           </a>
         </h3>
-      </section>
+      </section> */}
     </footer>
   );
 };
