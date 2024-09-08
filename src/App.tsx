@@ -21,15 +21,15 @@ function App() {
       <Navbar />
       <Hero />
       {/* <Sponsors /> */}
-      <About />
-      <HowItWorks />
+      {/* <About /> */}
+      {/* <HowItWorks /> */}
       {/* <Features /> */}
-      <Services />
-      <Cta />
-      <Testimonials />
+      {/* <Services /> */}
+      {/* <Cta /> */}
+      {/* <Testimonials /> */}
       {/* <Team /> */}
       {/* <Pricing /> */}
-      <Newsletter />
+      {/* <Newsletter /> */}
       <FAQ />
       <Footer />
       <ScrollToTop />
