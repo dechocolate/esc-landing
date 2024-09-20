@@ -27,7 +27,7 @@ const routeList: RouteProps[] = [
   {
     href: "#about",
     label: "About",
-  },  
+  },
   {
     href: "#faq",
     label: "FAQ",
@@ -71,7 +71,7 @@ export const Navbar = () => {
               <SheetContent side={"left"}>
                 <SheetHeader>
                   <SheetTitle className="font-bold text-xl">
-                    Shadcn/React
+                    Classy
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
@@ -86,19 +86,10 @@ export const Navbar = () => {
                       {label}
                     </a>
                   ))}
-                  <a
-                    rel="noreferrer noopener"
-                    href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-                    target="_blank"
-                    className={`w-[110px] border ${buttonVariants({
-                      variant: "secondary",
-                    })}`}
-                  >
-                  </a>
                 </nav>
               </SheetContent>
             </Sheet>
-          </span>          
+          </span>
           <nav className="hidden md:flex gap-2">
             {routeList.map((route: RouteProps, i) => (
               <a
