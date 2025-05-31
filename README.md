@@ -1,59 +1,217 @@
-# Shadcn/UI Landing Page Template
+# CLASSY - 첫인상으로 시작되는 진짜 매칭
 
-## <a href="https://ui.shadcn.com/" target="_blank">ShadcnUI</a> + <a href="https://react.dev/" target="_blank">React</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
+이 프로젝트는 AI와 매니저 큐레이션을 결합한 프리미엄 데이팅 플랫폼 "CLASSY"의 현대적인 랜딩페이지입니다.
 
-![shadch-landing-page](https://github.com/leoMirandaa/shadcn-landing-page/assets/61714687/3ba7b51f-9589-4541-800a-5ab7cecad1b5)
+## 🌟 주요 특징
 
-Build your React landing page effortlessly with the required sections to your project. <a href="https://shadcn-landing-page.vercel.app/" target="_blank">Live Demo</a>
+### 💎 CLASSY 브랜딩 핵심
+- **외모보다 첫인상과 대화 중심**: 가면 파티 시스템으로 진정한 소통 시작
+- **실명 인증된 프리미엄 회원만**: 검증된 사용자만의 안전한 매칭 환경
+- **AI + 매니저 큐레이션**: 하이엔드 소개 경험 제공
+- **노쇼 환불 보장제**: 첫 만남 실패 시 전액 포인트 환불
 
-## Sections
+### 🎯 핵심 차별점
+- **🧠 AI 외모/패션 분석**: 첫인상 기반 매칭 시스템
+- **🤝 선정된 이성과만 매칭**: 성비 & 퀄리티 조정
+- **🧾 매니저 보증제**: 전문 매니저의 수작업 중개
+- **🗓️ 자동 데이트 제안**: 장소/시간까지 자동 추천
+- **🕵️ 가면파티/익명 모임**: 외모가 아닌 '대화'로 시작
 
-- [x] Navbar
-- [x] Sidebar(mobile)
-- [x] Hero
-- [x] Sponsors
-- [x] About
-- [x] Stats
-- [x] How It Works
-- [x] Features
-- [x] Services
-- [x] Call-to-Action (CTA)
-- [x] Testimonials
-- [x] Team
-- [x] Pricing
-- [x] Newsletter
-- [x] Frequently Asked Questions(FAQ)
-- [x] Footer
+### 디자인 & UX
+- **프리미엄 디자인**: 고급스러운 골드 컬러 팔레트 (#A38A4F)
+- **반응형 웹 디자인**: 모바일, 태블릿, 데스크톱 최적화
+- **부드러운 애니메이션**: 스크롤 기반 애니메이션과 인터랙션
+- **직관적인 네비게이션**: 사용자 친화적인 메뉴 구조
 
-## Features
+### 기능
+- **모달 기반 상호작용**: AI 분석, 매니저 상담 등 전용 모달
+- **실시간 통계 애니메이션**: 성공률, 매칭률 등 수치 강조
+- **인터랙티브 요소**: 호버 효과, 클릭 애니메이션
+- **빠른 메뉴**: 우측 하단 고정 퀵 액세스
 
-- [x] Fully Responsive Design
-- [x] User Friendly Navigation
-- [x] Dark Mode
-- [x] Meta tags
+## 📁 파일 구조
 
-## How to install
-
-1. Clone this repository:
-
-```bash
-git clone https://github.com/leoMirandaa/shadcn-landing-page.git
+```
+esc-homepage/
+├── index.html          # 메인 HTML 파일 (CLASSY 구조)
+├── styles.css          # CSS 스타일시트 (프리미엄 디자인)
+├── script.js           # JavaScript 기능 (모달, 애니메이션)
+└── README.md           # 프로젝트 문서
 ```
 
-2. Go into project
+## 🚀 시작하기
 
-```bash
-cd shadcn-landing-page
-```
+### 필요 조건
+- 웹 브라우저 (Chrome, Firefox, Safari, Edge 등)
+- 로컬 웹 서버 (선택사항)
 
-3. Install dependencies
+### 설치 및 실행
 
-```bash
-npm install
-```
+1. **파일 다운로드**
+   ```bash
+   # 프로젝트 클론 또는 파일 다운로드
+   ```
 
-4. Run project
+2. **로컬에서 실행**
+   - 방법 1: `index.html` 파일을 웹 브라우저에서 직접 열기
+   - 방법 2: 로컬 서버 사용 (권장)
+   ```bash
+   # Python 3 사용
+   python -m http.server 8000
+   
+   # Node.js 사용
+   npx serve .
+   
+   # PHP 사용
+   php -S localhost:8000
+   ```
 
-```bash
-npm run dev
-```
+3. **브라우저에서 확인**
+   - 직접 열기: `file:///path/to/index.html`
+   - 로컬 서버: `http://localhost:8000`
+
+## 📱 섹션 구성
+
+### 1. 헤더 (Header)
+- CLASSY 로고 및 브랜드명
+- 네비게이션 메뉴 (서비스 소개, 매칭 과정, 핵심 기능, 후기, 상담 문의)
+- 로그인/회원가입 버튼
+- 모바일 햄버거 메뉴
+
+### 2. 히어로 섹션 (Hero)
+- 메인 슬로건: "첫인상으로 시작되는 진짜 매칭"
+- 주요 액션 버튼 (AI 첫인상 분석, 1:1 매칭 상담)
+- 신뢰 배지 (실명 인증, 노쇼 환불 보장)
+- 애니메이션 마스크 아이콘
+
+### 3. 매칭 과정 (How It Works)
+- 4단계 프로세스 시각화
+- STEP 1: 익명 대화 (가면 시스템)
+- STEP 2: 프로필 공개 (AI 분석 기반)
+- STEP 3: 데이트 제안 (자동 추천)
+- STEP 4: 후기 & 재매칭
+
+### 4. 핵심 기능 (Features)
+- 2x2 카드 레이아웃
+- AI 매력 분석, 매니저 큐레이션
+- 노쇼 환불제, 실명 인증 회원제
+
+### 5. 서비스 소개 (About)
+- 진짜 대화에서 시작되는 인연 강조
+- 통계 수치 (89% 재만남 희망, 3일 평균 매칭, 100% 실명 인증)
+
+### 6. 고객 후기 (Testimonials)
+- 실제 사용자 후기 (익명화)
+- 5성 평점 시스템
+- 직업/나이 정보 포함
+
+### 7. 행동 유도 (CTA)
+- 최종 가입 유도 섹션
+- AI 외모 리포트, 1:1 매칭 상담 버튼
+- 환불 보장 문구 강조
+
+### 8. 푸터 (Footer)
+- 회사 정보 및 고객지원
+- 법적 링크 (이용약관, 개인정보처리방침, 환불정책)
+- 오픈채팅 상담 버튼
+
+### 9. 퀵 메뉴 (Quick Menu)
+- AI 분석, 매니저 상담, 가면 대화, 상담톡
+
+## 🎨 디자인 시스템
+
+### 색상 팔레트
+- **Primary Gold**: `#A38A4F` (메인 브랜드 컬러)
+- **Dark Navy**: `#1C1C2E` (텍스트, 배경)
+- **Soft Ivory**: `#F9F6F0` (메인 배경)
+- **Neutral Gray**: `#9B9B9B` (보조 텍스트)
+- **Accent Pink**: `#E4C5C5` (여성 포인트)
+- **Success Green**: `#4CAF50` (긍정 강조)
+
+### 타이포그래피
+- **폰트**: Pretendard (한국어 최적화)
+- **H1**: 48px, Bold (Hero 타이틀)
+- **H2**: 36px, Semi-bold (섹션 타이틀)
+- **H3**: 24px, Medium (카드 제목)
+- **Body**: 18px, Regular (본문)
+- **Small**: 14px, Regular (보조 텍스트)
+
+### 버튼 스타일
+- **Primary**: 골드 배경, 흰색 텍스트, 12px 라운드
+- **Secondary**: 투명 배경, 골드 테두리, 호버 시 채움
+- **Disabled**: 회색 배경, 비활성 상태
+
+### 반응형 브레이크포인트
+- **데스크톱**: 1200px 이상
+- **태블릿**: 768px - 1199px
+- **모바일**: 767px 이하
+- **소형 모바일**: 480px 이하
+
+## 🔧 주요 기능
+
+### 모달 시스템
+- AI 분석 신청 모달
+- 매니저 상담 예약 모달
+- 가면 대화 안내 모달
+- 실시간 상담톡 모달
+
+### 애니메이션 효과
+- 스크롤 기반 요소 등장 애니메이션
+- 통계 수치 카운터 애니메이션
+- 플로팅 하트 애니메이션
+- 아이콘 펄스 효과
+
+### 인터랙티브 요소
+- 카드 호버 효과
+- 버튼 클릭 애니메이션
+- 스크롤 투 탑 기능
+- 모바일 햄버거 메뉴
+
+## 👤 타겟 사용자
+
+- **연령대**: 25-40세 전문직
+- **특성**: 진정성 있는 만남을 원하는 사용자
+- **니즈**: 외모보다 대화/성격/매너를 중시
+- **경험**: 기존 소개팅앱에 실망했던 선별된 사용자층
+
+## 🌐 브라우저 지원
+
+- Chrome 60+
+- Firefox 60+
+- Safari 12+
+- Edge 79+
+- 모바일 브라우저 (iOS Safari, Chrome Mobile)
+
+## 📈 성능 최적화
+
+- **이미지 최적화**: SVG 아이콘 사용으로 빠른 로딩
+- **CSS 최적화**: 효율적인 애니메이션과 트랜지션
+- **JavaScript 최적화**: 모듈화된 이벤트 리스너 관리
+- **폰트 최적화**: Pretendard 웹폰트 사용
+
+## 🔮 향후 개선 사항
+
+- [ ] 실제 AI 분석 API 연동
+- [ ] 매니저 상담 예약 시스템 구현
+- [ ] 가면 대화 채팅 시스템 개발
+- [ ] 회원가입/로그인 기능 추가
+- [ ] 결제 시스템 연동
+- [ ] 관리자 대시보드 구축
+- [ ] 모바일 앱 개발
+- [ ] SEO 최적화
+- [ ] 웹 접근성 개선
+- [ ] PWA 기능 추가
+
+## 📄 라이선스
+
+이 프로젝트는 CLASSY 브랜딩 가이드를 기반으로 제작된 데모 랜딩페이지입니다. 상업적 사용 시 브랜딩 권리를 확인해주세요.
+
+## 🤝 기여하기
+
+프로젝트 개선을 위한 제안이나 버그 리포트는 언제든 환영합니다.
+
+---
+
+**브랜드**: CLASSY - Premium Dating Platform  
+**컨셉**: 첫인상으로 시작되는 진짜 매칭  
+**제작일**: 2024년 
