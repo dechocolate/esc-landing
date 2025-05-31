@@ -720,7 +720,7 @@ section {
 }
 
 .quick-chat {
-    background: #A38A4F;
+    background: var(--dark-navy);
     color: var(--white);
     border: none;
     padding: 16px 24px;
