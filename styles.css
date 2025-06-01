@@ -193,8 +193,8 @@ section {
 }
 
 /* Hero Section */
-.hero {
-    background-color: var(--dark-navy);
+.hero {    
+    background: linear-gradient(135deg, #F9F6F0 0%, #E8E2D5 50%, #D4C8B8 100%);
     color: var(--white);
     padding: 160px 0 120px;
     position: relative;
