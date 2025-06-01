@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSY - AI가 분석하고, 매니저가 소개하는 서울 프리미엄 소개팅</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>CLASSY</h2>
+                    <span>Premium Dating Platform</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#about">서비스 소개</a></li>
+                    <li><a href="#how-it-works">이용 방법</a></li>
+                    <li><a href="#testimonials">후기</a></li>
+                    <li><a href="#contact">상담 문의</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    AI가 분석하고,<br>
+                    매니저가 소개하는
+                    <span class="highlight">서울 프리미엄 소개팅</span>
+                </h1>
+                <p class="hero-subtitle">
+                    서울의 싱글을 위한 가장 스마트한 만남,<br>
+                    <strong>지금 신청해보세요.</strong>
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">AI 분석으로 시작하기</button>
+                    <button class="btn-secondary">1:1 소개 상담 신청</button>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <div id="lottie-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>AI 외모 분석</h3>
+                    <p>사진 한 장으로 스타일, 비율, 분위기 분석</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>LLM 성격 매칭</h3>
+                    <p>대화형 질문으로 깊이 있는 이상형 매칭</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>전담 매니저 큐레이션</h3>
+                    <p>사람이 검토하고, 장소/시간까지 제안</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seoul Lifestyle Section -->
+    <section id="seoul-lifestyle" class="seoul-lifestyle">
+        <div class="container">
+            <div class="lifestyle-content">
+                <div class="lifestyle-animation">
+                    <div id="lottie-lifestyle"></div>
+                </div>
+                <div class="lifestyle-text">
+                    <h2>소개팅, 너무 피곤하셨죠?</h2>
+                    <p>이제는 외모도, 성향도 잘 맞는 사람만 만나세요.</p>
+                    <div class="highlight-text">
+                        서울을 위한, 서울에 최적화된 소개팅.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"AI 분석이 생각보다 정확해서 놀랐어요. 스타일이 잘 맞는 분을 만났습니다."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-detail">30대 중반 / 여 / 마포</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"바쁜 일정 속에서 매니저 분이 도와줘서 너무 편했어요."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-detail">30대 초반 / 남 / 강남</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"서울에서 이런 퀄리티의 소개팅은 처음이에요."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-detail">30대 / 여 / 성수</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">①</div>
+                    <div class="step-content">
+                        <h3>사진 한 장 업로드</h3>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">②</div>
+                    <div class="step-content">
+                        <h3>성향 테스트 질문 응답</h3>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">③</div>
+                    <div class="step-content">
+                        <h3>매니저가 상대 소개</h3>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">④</div>
+                    <div class="step-content">
+                        <h3>장소/시간 제안 및 수락</h3>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">⑤</div>
+                    <div class="step-content">
+                        <h3>만남 후 리뷰 & 다음 매칭</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>지금, 당신의 매력을 AI로 확인해보세요</h2>
+                <div class="cta-actions">
+                    <button class="btn-primary">AI 매력 리포트 받기</button>
+                    <button class="btn-secondary">매니저 상담받기</button>
+                </div>
+                <div class="cta-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>실명 인증</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <span>개인정보 보호</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gift"></i>
+                        <span>첫 만남 무료</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="company-info">
+                        <h3>CLASSY</h3>
+                        <p>AI가 분석하고, 매니저가 소개하는 서울 프리미엄 소개팅</p>
+                    </div>
+                    <div class="support-info">
+                        <h4>고객지원</h4>
+                        <p><strong>상담톡:</strong> 평일 10:00-18:00</p>
+                        <p><strong>이메일:</strong> support@classy.co.kr</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#">CLASSY 소개</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">환불정책</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2024 CLASSY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Buttons -->
+    <div class="quick-buttons">
+        <button class="quick-chat">
+            <i class="fas fa-comments"></i>
+            <span>상담톡</span>
+        </button>
+        <button class="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
