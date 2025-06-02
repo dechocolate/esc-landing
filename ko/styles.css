@@ -360,6 +360,15 @@ body {
         height: 300px;
         margin: 0 auto;
     }
+
+    .features-grid,
+    .testimonials-slider,
+    .steps-container,
+    .cta-features,
+    .footer-links,
+    .quick-buttons {
+        display: none !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -397,7 +406,7 @@ body {
 /* Seoul Lifestyle Section */
 .seoul-lifestyle {
     padding: 5rem 0;
-    background: var(--light-bg);
+    background: #fff;
 }
 
 .lifestyle-content {
@@ -468,6 +477,77 @@ body {
 .author-detail {
     color: #666;
     font-size: 0.9rem;
+}
+
+/* Testimonials Carousel Styles */
+.testimonials-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 var(--container-padding);
+    box-sizing: border-box;
+}
+.carousel-track {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    gap: 24px;
+}
+.testimonial-card {
+    min-width: calc((100% - 48px) / 3);
+    max-width: calc((100% - 48px) / 3);
+    margin: 0;
+    flex: 0 0 calc((100% - 48px) / 3);
+    transition: transform 0.4s;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+}
+.carousel-btn {
+    background: rgba(163,138,79,0.8);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+}
+.carousel-btn:hover {
+    background: #8b7340;
+}
+@media (max-width: 1200px) {
+    .testimonials-carousel-wrapper {
+        max-width: 100%;
+        padding: 0 var(--container-padding);
+    }
+}
+@media (max-width: 768px) {
+    .testimonials-carousel-wrapper,
+    .carousel-track {
+        width: 100%;
+        max-width: 100%;
+        gap: 0;
+        margin-left: 0;
+        transform: none;
+        padding: 0 var(--container-padding);
+    }
+    .testimonial-card {
+        min-width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
 }
 
 /* How It Works Section */
