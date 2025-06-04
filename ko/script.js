@@ -687,4 +687,70 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-}); 
+});
+
+// Testimonials Carousel Logic
+function initTestimonialsCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.carousel-track .testimonial-card');
+    if (!track || cards.length === 0) return;
+
+    let cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+    let cardWidth = track.offsetWidth / cardsPerView;
+    let totalCards = cards.length;
+    let currentIndex = 0;
+
+    // 기존 복제 제거
+    const clones = track.querySelectorAll('.carousel-clone');
+    clones.forEach(clone => clone.remove());
+
+    // cardsPerView만큼 앞에서 복제해서 뒤에 붙임 (무한루프)
+    for (let i = 0; i < cardsPerView; i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('carousel-clone');
+        track.appendChild(clone);
+    }
+
+    function updateCarousel(behavior = 'smooth') {
+        track.scrollTo({
+            left: currentIndex * cardWidth,
+            behavior
+        });
+    }
+
+    function slideNext() {
+        currentIndex++;
+        updateCarousel();
+        // 마지막(복제) 카드셋에 도달하면, 첫 카드셋으로 순간이동
+        if (currentIndex === totalCards) {
+            setTimeout(() => {
+                currentIndex = 0;
+                updateCarousel('auto');
+            }, 400); // transition 시간과 맞춤
+        }
+    }
+
+    let autoSlide = setInterval(slideNext, 3000);
+
+    // 반응형 대응: 리사이즈 시 카드 수/너비 재계산 및 복제 재설정
+    window.addEventListener('resize', () => {
+        cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+        cardWidth = track.offsetWidth / cardsPerView;
+        // 복제 재설정
+        const clones = track.querySelectorAll('.carousel-clone');
+        clones.forEach(clone => clone.remove());
+        for (let i = 0; i < cardsPerView; i++) {
+            const clone = cards[i].cloneNode(true);
+            clone.classList.add('carousel-clone');
+            track.appendChild(clone);
+        }
+        updateCarousel('auto');
+    });
+
+    // 마우스 올리면 멈춤, 내리면 재시작
+    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    track.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(slideNext, 3000);
+    });
+}
+document.addEventListener('DOMContentLoaded', initTestimonialsCarousel); 
