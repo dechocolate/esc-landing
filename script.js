@@ -1,97 +1,6 @@
+// Smooth scroll animation for elements
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    }
-
-    // Smooth Scroll for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Close mobile menu if open
-                if (navLinks) {
-                    navLinks.classList.remove('active');
-                }
-            }
-        });
-    });
-
-    // Header Scroll Effect
-    const header = document.querySelector('.header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll <= 0) {
-            header.classList.remove('scroll-up');
-            return;
-        }
-        
-        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-            // Scroll Down
-            header.classList.remove('scroll-up');
-            header.classList.add('scroll-down');
-        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-            // Scroll Up
-            header.classList.remove('scroll-down');
-            header.classList.add('scroll-up');
-        }
-        lastScroll = currentScroll;
-    });
-
-    // FAQ Toggle Functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentElement;
-            const answer = faqItem.querySelector('.faq-answer');
-            const icon = this.querySelector('i');
-            
-            // Close all other FAQ items
-            faqQuestions.forEach(otherQuestion => {
-                if (otherQuestion !== this) {
-                    const otherFaqItem = otherQuestion.parentElement;
-                    const otherAnswer = otherFaqItem.querySelector('.faq-answer');
-                    const otherIcon = otherQuestion.querySelector('i');
-                    
-                    otherAnswer.classList.remove('active');
-                    otherIcon.classList.remove('fa-minus');
-                    otherIcon.classList.add('fa-plus');
-                }
-            });
-            
-            // Toggle current FAQ item
-            answer.classList.toggle('active');
-            if (answer.classList.contains('active')) {
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-            } else {
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-            }
-        });
-    });
-
-    // Intersection Observer for Fade-in Animation
+    // Add scroll reveal animation
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -101,129 +10,274 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe all animated elements
-    document.querySelectorAll('.program-card, .stat-item, .why-item, .program-detail, .tool-item, .case-item').forEach(el => {
-        observer.observe(el);
+    // Select all sections to animate (excluding CTA for custom faster reveal)
+    const sections = document.querySelectorAll('.question-section, .shocked-section, .woman-section, .conversation-section, .manager-section, .result-section, .meeting-section, .list-section, .qa-section, .faq');
+    
+    sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(section);
     });
 
-    // Add hover effect to program cards
-    document.querySelectorAll('.program-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const image = this.querySelector('.program-image');
-            if (image) {
-                image.style.transform = 'scale(1.05)';
-                image.style.transition = 'transform 0.3s ease';
-            }
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            const image = this.querySelector('.program-image');
-            if (image) {
-                image.style.transform = 'scale(1)';
-            }
-        });
-    });
+    // Faster reveal for CTA section
+    const ctaSection = document.querySelector('.cta-section');
+    if (ctaSection) {
+        // Initial hidden state
+        ctaSection.style.opacity = '0';
+        ctaSection.style.transform = 'translateY(20px)';
+        // Immediate transition without index delay
+        ctaSection.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
-    // Add parallax effect to hero section
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
-    // Form Submission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the data to your server
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-            
-            // Reset form
-            this.reset();
+        const ctaObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ctaSection.style.opacity = '1';
+                    ctaSection.style.transform = 'translateY(0)';
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            // Trigger earlier by expanding viewport bounds
+            rootMargin: '200px 0px',
+            // Small threshold so it reveals as soon as it barely enters
+            threshold: 0.01
         });
+
+        ctaObserver.observe(ctaSection);
     }
 
-    // Add loading animation to buttons
-    document.querySelectorAll('.btn-primary').forEach(button => {
-        button.addEventListener('click', function(e) {
-            if (this.type === 'submit') {
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 처리중...';
-                setTimeout(() => {
-                    this.innerHTML = this.getAttribute('data-original-text') || '상담 신청하기';
-                }, 2000);
-            }
+    // FAQ accessible accordion toggle
+    const faqButtons = document.querySelectorAll('.faq__btn');
+    faqButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const panelId = btn.getAttribute('aria-controls');
+            const panel = document.getElementById(panelId);
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+            // Close others
+            document.querySelectorAll('.faq__btn[aria-expanded="true"]').forEach((openBtn) => {
+                if (openBtn !== btn) {
+                    openBtn.setAttribute('aria-expanded', 'false');
+                    const openPanel = document.getElementById(openBtn.getAttribute('aria-controls'));
+                    if (openPanel) {
+                        openPanel.hidden = true;
+                        openBtn.parentElement.removeAttribute('open');
+                    }
+                }
+            });
+
+            btn.setAttribute('aria-expanded', String(!expanded));
+            if (panel) panel.hidden = expanded;
+            btn.parentElement.toggleAttribute('open', !expanded);
         });
     });
 
-    // Add CSS class for fade-in animation
+    // Animate list items on scroll
+    const listItems = document.querySelectorAll('.list-item');
+    listItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+    });
+
+    const listObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }, 100);
+            }
+        });
+    }, observerOptions);
+
+    listItems.forEach(item => {
+        listObserver.observe(item);
+    });
+
+    // Add floating animation to emojis and images
+    const emojis = document.querySelectorAll('.emoji, .woman-emoji, .people-emoji, .trash-emoji, .meeting-emoji, .manager-icon, .result-icon');
+    emojis.forEach(emoji => {
+        emoji.style.animation = 'float 3s ease-in-out infinite';
+    });
+    
+    // Add animation to content images
+    const contentImages = document.querySelectorAll('.content-image');
+    contentImages.forEach((img, index) => {
+        img.style.animation = `fadeIn 0.8s ease-out ${index * 0.2}s both`;
+    });
+
+    // Add CSS for floating animation
     const style = document.createElement('style');
     style.textContent = `
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
     `;
     document.head.appendChild(style);
 
-    // Load Lottie animation
-    lottie.loadAnimation({
-        container: document.getElementById('dating-animation'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://assets2.lottiefiles.com/packages/lf20_xyadoh9h.json' // Dating/relationship themed animation
-    });
-});
+    // Add pulse animation to exclamation icon
+    const exclamationIcon = document.querySelector('.exclamation-icon');
+    if (exclamationIcon) {
+        exclamationIcon.style.animation = 'pulse 2s ease-in-out infinite';
+    }
 
-// Number animation function
-function animateNumbers() {
-    const numbers = document.querySelectorAll('.animate-number');
-    
-    numbers.forEach(number => {
-        const target = parseInt(number.getAttribute('data-target'));
-        const duration = 2000; // 2 seconds
-        const step = target / (duration / 16); // 60fps
-        let current = 0;
+    // Add hover effect to question marks
+    const questionMarks = document.querySelector('.question-marks');
+    if (questionMarks) {
+        questionMarks.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        questionMarks.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
 
-        const updateNumber = () => {
-            current += step;
-            if (current < target) {
-                number.textContent = Math.floor(current);
-                requestAnimationFrame(updateNumber);
-            } else {
-                number.textContent = target;
-            }
-        };
-
-        // Start animation when element is in viewport
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateNumber();
-                    observer.unobserve(entry.target);
+    // Smooth scroll to sections when clicking on list items
+    const listItemElements = document.querySelectorAll('.list-item');
+    listItemElements.forEach((item, index) => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function() {
+            const sections = ['.header', '.question-section', '.shocked-section', '.woman-section'];
+            if (sections[index]) {
+                const targetSection = document.querySelector(sections[index]);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-            });
-        }, { threshold: 0.5 });
-
-        observer.observe(number);
+            }
+        });
     });
-}
 
-// Run animation when page loads
-document.addEventListener('DOMContentLoaded', animateNumbers); 
+    // Add parallax effect to background and images
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.exclamation-icon, .question-marks');
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+        
+        // Parallax for content images
+        const images = document.querySelectorAll('.content-image');
+        images.forEach((img, index) => {
+            const rect = img.getBoundingClientRect();
+            const speed = 0.3;
+            const yPos = rect.top * speed;
+            img.style.transform = `translateY(${yPos * 0.1}px) scale(${1 + (scrolled * 0.0001)})`;
+        });
+    });
+
+    // Add click ripple effect to buttons and clickable elements
+    const clickableElements = document.querySelectorAll('.list-item, .tag');
+    clickableElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            this.appendChild(ripple);
+
+            const x = e.clientX - e.target.offsetLeft;
+            const y = e.clientY - e.target.offsetTop;
+
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add ripple effect CSS
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(74, 144, 226, 0.3);
+            width: 100px;
+            height: 100px;
+            margin-top: -50px;
+            margin-left: -50px;
+            animation: rippleEffect 0.6s;
+            pointer-events: none;
+        }
+        
+        @keyframes rippleEffect {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .list-item, .tag {
+            position: relative;
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+
+    // Add typewriter effect to main title
+    const mainTitle = document.querySelector('.main-title');
+    if (mainTitle) {
+        const text = mainTitle.textContent;
+        mainTitle.textContent = '';
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < text.length) {
+                mainTitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    }
+    
+    // Add CTA button click handler
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function() {
+            // Open Kakao Open Chat in a new tab immediately
+            const kakaoUrl = 'https://open.kakao.com/me/classyy';
+            window.open(kakaoUrl, '_blank');
+
+            // Optional: visual feedback on current page
+            const ripple = document.createElement('span');
+            ripple.classList.add('button-ripple');
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    }
+});
