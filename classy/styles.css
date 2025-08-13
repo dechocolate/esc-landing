@@ -152,6 +152,14 @@ body {
     margin-bottom: 50px;
 }
 
+.list-section .qa-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333333;
+}
+
 .list-item {
     display: flex;
     align-items: flex-start;
@@ -381,6 +389,11 @@ body {
         padding: 20px 15px;
     }
     
+    .list-section .qa-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
     .list-title {
         font-size: 13px;
     }
@@ -436,6 +449,11 @@ body {
     .content-image {
         width: 220px;
         height: 220px;
+    }
+    
+    .list-section .qa-title {
+        font-size: 22px;
+        margin-bottom: 25px;
     }
     
     .shocked-text,
