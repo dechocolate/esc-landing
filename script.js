@@ -280,4 +280,35 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => ripple.remove(), 600);
         });
     }
+
+    // Floating CTA visibility control
+    const floatingCta = document.querySelector('.floating-cta');
+    const mainCta = document.querySelector('.cta-section');
+    if (floatingCta) {
+        // Show floating CTA by default
+        floatingCta.hidden = false;
+
+        const toggleFloating = (show) => {
+            floatingCta.style.opacity = show ? '1' : '0';
+            floatingCta.style.transform = show ? 'translateY(0)' : 'translateY(12px)';
+            floatingCta.style.transition = 'opacity .25s ease, transform .25s ease';
+            // Keep in DOM for smoothness; visually hide
+        };
+
+        // Hide floating CTA while main CTA section is in view
+        if (mainCta) {
+            const floatObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        toggleFloating(false);
+                    } else {
+                        toggleFloating(true);
+                    }
+                });
+            }, { root: null, threshold: 0.1 });
+            floatObserver.observe(mainCta);
+        } else {
+            toggleFloating(true);
+        }
+    }
 });
