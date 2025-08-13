@@ -38,12 +38,12 @@ const header = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         header.classList.remove('scroll-up');
         return;
     }
-    
+
     if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
         // Scrolling down
         header.classList.remove('scroll-up');
@@ -113,10 +113,10 @@ document.querySelectorAll('.feature-card, .hero-content, .hero-animation').forEa
 // Quick menu hover effect
 const quickItems = document.querySelectorAll('.quick-item');
 quickItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
+    item.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.1)';
     });
-    item.addEventListener('mouseleave', function() {
+    item.addEventListener('mouseleave', function () {
         this.style.transform = 'scale(1)';
     });
 });
@@ -141,67 +141,43 @@ stats.forEach(stat => {
 });
 
 // Button Click Handlers
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // AI Analysis buttons
     const aiAnalysisBtns = document.querySelectorAll('.btn-primary');
     aiAnalysisBtns.forEach(btn => {
         if (btn.textContent.includes('AI')) {
-            btn.addEventListener('click', function() {
-                showModal('AI 첫인상 분석', 
-                    '🤖 AI가 당신의 매력을 분석합니다<br><br>' +
-                    '• 외모 & 패션 스타일 분석<br>' +
-                    '• 첫인상 매력 포인트 도출<br>' +
-                    '• 맞춤형 매칭 전략 제안<br><br>' +
-                    '분석 결과는 24시간 내에 이메일로 발송됩니다.',
-                    '분석 신청하기'
-                );
+            btn.addEventListener('click', function () {
+                window.location.href = 'https://web.classy.social/analyze';
             });
         }
     });
-    
+
+    const analysisBtns = document.querySelectorAll('.btn-primary');
+    analysisBtns.forEach(btn => {
+        if (btn.textContent.includes('상담')) {
+            btn.addEventListener('click', function () {
+                window.location.href = 'https://web.classy.social/analyze';
+            });
+        }
+    });
+
     // Manager Consultation buttons
     const consultationBtns = document.querySelectorAll('.btn-secondary');
     consultationBtns.forEach(btn => {
         if (btn.textContent.includes('상담')) {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 window.open('http://pf.kakao.com/_GXHBn', '_blank');
             });
         }
     });
-    
+
     // Quick menu items
     const quickItems = document.querySelectorAll('.quick-item');
     quickItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const text = this.querySelector('span').textContent;
             if (text.includes('AI')) {
-                showModal('AI 매력 분석', 
-                    '🧠 당신만의 매력 포인트를 발견하세요<br><br>' +
-                    'AI가 분석하는 항목:<br>' +
-                    '• 외모 & 스타일 점수<br>' +
-                    '• 첫인상 매력도<br>' +
-                    '• 개선 포인트 제안<br>' +
-                    '• 이상형 매칭률',
-                    'AI 분석 시작'
-                );
-            } else if (text.includes('매니저')) {
-                showModal('매니저 상담', 
-                    '🤝 전문 매니저가 도와드립니다<br><br>' +
-                    '• 개인 맞춤 매칭 서비스<br>' +
-                    '• 프리미엄 회원 큐레이션<br>' +
-                    '• 안전한 만남 보장<br>' +
-                    '• 노쇼 시 전액 환불',
-                    '매니저 연결'
-                );
-            } else if (text.includes('가면')) {
-                showModal('가면 대화', 
-                    '🎭 익명으로 시작하는 진짜 대화<br><br>' +
-                    '• 외모가 아닌 대화로 시작<br>' +
-                    '• 진솔한 소통 가능<br>' +
-                    '• 상호 관심 시 프로필 공개<br>' +
-                    '• 안전하고 품격있는 만남',
-                    '가면 대화 시작'
-                );
+                window.location.href = 'https://web.classy.social/analyze';                
             } else if (text.includes('상담톡')) {
                 window.open('http://pf.kakao.com/_GXHBn', '_blank');
             }
@@ -418,11 +394,11 @@ function showModal(title, content, buttonText) {
     cancelBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
 
-    actionBtn.addEventListener('click', function() {
+    actionBtn.addEventListener('click', function () {
         // Simulate form submission
         actionBtn.textContent = '처리중...';
         actionBtn.disabled = true;
-        
+
         setTimeout(() => {
             alert('신청이 완료되었습니다! 곧 연락드리겠습니다.');
             closeModal();
@@ -442,7 +418,7 @@ function showModal(title, content, buttonText) {
             }
         }
     `;
-    
+
     if (!document.querySelector('#modal-fadeout-styles')) {
         const fadeOutStyleSheet = document.createElement('style');
         fadeOutStyleSheet.id = 'modal-fadeout-styles';
@@ -452,24 +428,24 @@ function showModal(title, content, buttonText) {
 }
 
 // Feature Cards Hover Effect
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const featureCards = document.querySelectorAll('.feature-card');
-    
+
     featureCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.boxShadow = '0 25px 80px rgba(163, 138, 79, 0.2)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.boxShadow = '0 10px 40px rgba(28, 28, 46, 0.1)';
         });
     });
 });
 
 // Testimonial Cards Animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const testimonialCards = document.querySelectorAll('.testimonial-card');
-    
+
     testimonialCards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.2}s`;
         card.classList.add('fade-in-up');
@@ -477,9 +453,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Stats Counter Animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const stats = document.querySelectorAll('.stat-number');
-    
+
     const animateStats = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -487,42 +463,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 const finalValue = target.textContent;
                 const isPercentage = finalValue.includes('%');
                 const numericValue = parseInt(finalValue);
-                
+
                 let currentValue = 0;
                 const increment = numericValue / 50; // 50 steps
-                
+
                 const timer = setInterval(() => {
                     currentValue += increment;
                     if (currentValue >= numericValue) {
                         currentValue = numericValue;
                         clearInterval(timer);
                     }
-                    
+
                     target.textContent = Math.floor(currentValue) + (isPercentage ? '%' : (finalValue.includes('일') ? '일' : ''));
                 }, 30);
-                
+
                 observer.unobserve(target);
             }
         });
     };
-    
+
     const statsObserver = new IntersectionObserver(animateStats, {
         threshold: 0.5
     });
-    
+
     stats.forEach(stat => {
         statsObserver.observe(stat);
     });
 });
 
 // Scroll to Top Functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const scrollTopBtn = document.querySelector('.scroll-top');
     const quickChatBtn = document.querySelector('.quick-chat');
 
     // Scroll to top button
     if (scrollTopBtn) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.pageYOffset > 300) {
                 scrollTopBtn.style.display = 'flex';
             } else {
@@ -530,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        scrollTopBtn.addEventListener('click', function() {
+        scrollTopBtn.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -540,21 +516,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Quick chat button
     if (quickChatBtn) {
-        quickChatBtn.addEventListener('click', function() {
+        quickChatBtn.addEventListener('click', function () {
             window.open('http://pf.kakao.com/_GXHBn', '_blank');
         });
     }
 });
 
 // Loading Animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Add loading class to body initially
     document.body.classList.add('loading');
-    
+
     // Remove loading class after page loads
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         document.body.classList.remove('loading');
-        
+
         // Trigger hero animation
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) {
@@ -632,10 +608,10 @@ const additionalStyleSheet = document.createElement('style');
 additionalStyleSheet.textContent = additionalStyles;
 document.head.appendChild(additionalStyleSheet);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Fade-in Animation on Scroll
     const fadeElements = document.querySelectorAll('.feature-card, .testimonial-card, .step');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -659,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add fade-in class
-    document.addEventListener('scroll', function() {
+    document.addEventListener('scroll', function () {
         fadeElements.forEach(element => {
             if (isElementInViewport(element)) {
                 element.classList.add('fade-in');

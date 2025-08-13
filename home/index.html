@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔로오프 - 매칭 서비스</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7B3FF2',
+                        secondary: '#9333EA',
+                        dark: '#2D2D3D'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-2">
+                        <div class="bg-primary rounded-lg p-2">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-800">솔로오프</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">샐리의소개팅</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">미팅파티</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">리얼 후기</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">커뮤니티</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">제휴 문의</a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-primary transition">로그인</button>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">회원가입</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="hidden md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">Home</a>
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">샐리의소개팅</a>
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">미팅파티</a>
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">리얼 후기</a>
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">커뮤니티</a>
+                    <a href="#" class="block px-3 py-2 text-gray-600 hover:text-primary">제휴 문의</a>
+                    <div class="border-t border-gray-200 mt-4 pt-4">
+                        <button class="block w-full text-left px-3 py-2 text-gray-600 hover:text-primary">로그인</button>
+                        <button class="block w-full mt-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">회원가입</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 md:py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="bg-dark rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                        참가자 40% 이상<br>
+                        입소문과<br>
+                        지인 추천으로 참여
+                    </h1>
+                    <p class="text-gray-300 text-sm md:text-base mb-8">
+                        써보신 분들이 모두 아시듯이 진짜에게 추천하는<br>
+                        솔로오프. 참가자들의 높은 만족도로 주변 지인<br>
+                        소개까지! 신규회원 40% 이상 지인<br>
+                        (친구/가족 추천)
+                    </p>
+                </div>
+                <div class="absolute bottom-0 right-0 w-48 md:w-64 h-48 md:h-64">
+                    <div class="relative w-full h-full">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                            <path fill="#FFB6C1" d="M140 120c0-20 20-40 40-20s0 40-20 40s-20-20-20-20z"/>
+                            <path fill="#FF69B4" d="M100 100c0-20 20-40 40-20s0 40-20 40s-20-20-20-20z"/>
+                            <path fill="#FFB6C1" d="M120 80c0-15 15-30 30-15s0 30-15 30s-15-15-15-15z"/>
+                            <path fill="#9333EA" d="M80 140c0-10 30-20 60-20s60 10 60 20s0 20-20 30H100c-20-10-20-20-20-30z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 md:py-20 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-4">
+                매일 쏟아지는 커플 매칭 후기!
+            </h2>
+            <p class="text-center text-primary font-semibold mb-12">
+                솔로오프에서 SOLO OFF 하세요 💜
+            </p>
+
+            <!-- Chat Messages -->
+            <div class="space-y-4 max-w-4xl mx-auto">
+                <!-- Left Message -->
+                <div class="flex items-start space-x-3">
+                    <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center">
+                        <span class="text-sm font-semibold">👤</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl p-4 max-w-xs md:max-w-md">
+                        <p class="font-semibold mb-1">지니님</p>
+                        <p class="text-sm text-gray-700">
+                            제가 좀 소극적인 성격이 아닌데 남자친구가 첫 만남 때 그게 느껴졌다고 ㅋㅋ ㅋㅋㅋㅋ<br>
+                            근데? 잘어울린다!!!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Message -->
+                <div class="flex items-start space-x-3 justify-end">
+                    <div class="bg-yellow-100 rounded-2xl p-4 max-w-xs md:max-w-md">
+                        <p class="font-semibold mb-1 text-right">토끼님</p>
+                        <p class="text-sm text-gray-700">
+                            여기서 남친 만났어요!!<br>
+                            무려무려 같이 취업준비까지 함께 졸업!!!<br>
+                            행복해요 솔로오프 최고!! 👍
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2 text-right">오후 2:34</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center">
+                        <span class="text-sm font-semibold">🐰</span>
+                    </div>
+                </div>
+
+                <!-- Left Message -->
+                <div class="flex items-start space-x-3">
+                    <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center">
+                        <span class="text-sm font-semibold">👤</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl p-4 max-w-xs md:max-w-md">
+                        <p class="font-semibold mb-1">희니님</p>
+                        <p class="text-sm text-gray-700">
+                            처음엔 많이 어색하고 떨렸는데<br>
+                            분위기나 진행이 편안해서 즐겁게 얘기나눴어요 ㅎㅎ<br>
+                            덕분에 좋은 사람 만났어요~~
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Message -->
+                <div class="flex items-start space-x-3 justify-end">
+                    <div class="bg-purple-100 rounded-2xl p-4 max-w-xs md:max-w-md">
+                        <p class="font-semibold mb-1 text-right">현우님</p>
+                        <p class="text-sm text-gray-700">
+                            완전 운명적인 만남이었어요!!<br>
+                            첫만남때부터 뭔가 통하는게 많았고<br>
+                            지금은 100일 넘게 연애중입니다 ㅎㅎ<br>
+                            솔로오프 감사해요~~
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2 text-right">오후 5:17</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center">
+                        <span class="text-sm font-semibold">🙂</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 md:py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+                왜 솔로오프인가?
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">검증된 회원</h3>
+                    <p class="text-gray-600">
+                        철저한 신원 확인과 프로필 검증으로<br>
+                        안전하고 신뢰할 수 있는 만남
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">높은 매칭률</h3>
+                    <p class="text-gray-600">
+                        AI 기반 매칭 시스템과 전문가의<br>
+                        큐레이션으로 최적의 인연 찾기
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+                            <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">지속적인 서포트</h3>
+                    <p class="text-gray-600">
+                        매칭 후에도 관계 발전을 위한<br>
+                        전문가의 조언과 지원
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 md:py-20 px-4 bg-gradient-to-r from-primary to-secondary">
+        <div class="container mx-auto max-w-4xl text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                지금 바로 시작하세요!
+            </h2>
+            <p class="text-lg mb-8 opacity-90">
+                수많은 성공 사례가 증명하는 솔로오프의 매칭 서비스
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    무료 회원가입
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition">
+                    서비스 둘러보기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">솔로오프</h3>
+                    <p class="text-sm">
+                        믿을 수 있는 매칭 서비스<br>
+                        당신의 인연을 찾아드립니다
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">빠른 링크</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">국내결혼중개 표준약관</a></li>
+                        <li><a href="#" class="hover:text-white transition">보증보험 청구절차</a></li>
+                        <li><a href="#" class="hover:text-white transition">이용약관</a></li>
+                        <li><a href="#" class="hover:text-white transition">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">연락처</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>고객센터: solo_off@naver.com</li>
+                        <li>전화: 010-4984-7303</li>
+                        <li>담당자: 김희정</li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">소셜 미디어</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 p-2 rounded hover:bg-gray-700 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-2 rounded hover:bg-gray-700 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>솔로오프 대표이사 : 김희정 | 사업자 등록번호 602-78-00523</p>
+                <p>경기도 수원시 권선구 경수대로 384번길 45 304호</p>
+                <p>국내결혼중개업 신고(등록)번호 : 제 경기-수원-국내-23-0008호</p>
+                <p class="mt-4">Copyright ⓒ 2025 솔로오프 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
