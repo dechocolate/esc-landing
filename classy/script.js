@@ -232,6 +232,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Log page load
-console.log('진지한 만남 서비스 - Landing page loaded successfully');
