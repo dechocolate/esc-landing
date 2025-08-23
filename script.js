@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ctaButton) {
         ctaButton.addEventListener('click', function() {
             // Open Kakao Open Chat in a new tab immediately
-            const kakaoUrl = 'https://open.kakao.com/me/classyy';
+            const kakaoUrl = 'https://docs.google.com/forms/d/1KNjL3A-p0e5U6jiuOCArirkPcEz0uEiJYyR6QjpPJSw/edit';
             window.open(kakaoUrl, '_blank');
 
             // Optional: visual feedback on current page
