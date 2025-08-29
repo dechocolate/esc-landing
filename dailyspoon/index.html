@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>데일리스푼 - 카톡 교육 랜딩</title>
+    <title>데일리스푼 - 매일 카톡으로 영어 한스푼</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.6/kakao.min.js"
+        integrity="sha384-WAtVcQYcmTO/N+C1N+1m6Gp8qxh+3NlnP7X1U7qP6P5dQY/MsRBNTh+e1ahJrkEm"
+        crossorigin="anonymous"></script>
+    <script>
+        Kakao.init('${JAVASCRIPT_KEY}');  // 사용하려는 앱의 JavaScript 키 입력
+    </script>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -13,139 +21,135 @@
             <div class="brand">
                 <a href="#" class="logo">DAILY SPOON</a>
             </div>
-            <nav class="menu">
-                <a href="#best" class="menu-link">BEST</a>
-                <a href="#hot" class="menu-link">HOT</a>
-                <a href="#new" class="menu-link">NEW</a>
-                <a href="#news" class="menu-link">경제 뉴스</a>
-                <a href="#travel" class="menu-link">여행/문화</a>
-                <a href="#music" class="menu-link">클래식</a>
-                <a href="#knowledge" class="menu-link">넓얕지식</a>
-                <a href="#books" class="menu-link">영어원서</a>
-            </nav>
-            <div class="actions">
-                <button class="btn ghost" id="loginBtn">로그인</button>
-                <button class="btn primary" id="signupBtn">회원가입</button>
-                <button class="cart" aria-label="장바구니">0</button>
-                <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-        <div class="mobile-drawer" id="mobileDrawer">
-            <a href="#best" class="drawer-link">BEST</a>
-            <a href="#hot" class="drawer-link">HOT</a>
-            <a href="#new" class="drawer-link">NEW</a>
-            <a href="#news" class="drawer-link">경제 뉴스</a>
-            <a href="#travel" class="drawer-link">여행/문화</a>
-            <a href="#music" class="drawer-link">클래식</a>
-            <a href="#knowledge" class="drawer-link">넓얕지식</a>
-            <a href="#books" class="drawer-link">영어원서</a>
-            <div class="drawer-cta">
-                <button class="btn block">로그인</button>
-                <button class="btn primary block">회원가입</button>
-            </div>
-        </div>
+            <!-- <nav class="menu">
+                <a href="#best" class="menu-link">인기</a>
+                <a href="#hot" class="menu-link">추천</a>
+                <a href="#all" class="menu-link">전체</a>
+            </nav> -->
     </header>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container hero-inner">
-            <h1 class="hero-title">데일리스푼 - 카톡으로 받는 클래스</h1>
-            <p class="hero-sub">대한민국 1위 카톡교육, 인기 클래스를 지금 만나보세요.</p>
+            <h1 class="hero-title">매일 카톡으로 영어 한스푼</h1>
+            <p class="hero-sub">하루 3분, 카톡으로 도착하는 생활·비즈니스 영어. 부담 없이 꾸준히.</p>
             <div class="hero-ctas">
-                <a href="#best" class="btn primary">🔥인기 클래스 둘러보기</a>
-                <a href="#all" class="btn ghost">전체 이용권 보기</a>
+                <a href="http://pf.kakao.com/_DKBxmn" class="btn primary">무료 체험 시작하기</a>                
+            </div>
+            <div class="hero-media">
+                <img src="../img/spoon_1.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_2.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_3.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_4.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_5.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_6.jpg" alt="영어 한스푼 미리보기">
+                <img src="../img/spoon_7.jpg" alt="영어 한스푼 미리보기">
             </div>
         </div>
         <div class="hero-bg"></div>
     </section>
 
     <!-- BEST Marquee -->
-    <section id="best" class="section">
-        <div class="container">
-            <h2 class="section-title">🥇BEST 상품</h2>
+    <!-- <section id="best" class="section"> -->
+    <!-- <div class="container">
+            <h2 class="section-title">🥇인기 영어 콘텐츠</h2>
             <div class="marquee" data-speed="40">
                 <div class="marquee-track">
                     <div class="marquee-item">
-                        <img src="../img/img1.png" alt="클래스 1">
-                        <span>영어 회화 한달완성</span>
+                        <img src="../img/spoon_2.jpg" alt="출근길 3분 회화 이미지">
+                        <span>출근길 3분 회화</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img2.png" alt="클래스 2">
-                        <span>일본어 기초 스타트</span>
+                        <img src="../img/spoon_3.jpg" alt="패턴으로 말하기 이미지">
+                        <span>패턴으로 말하기</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img3.png" alt="클래스 3">
-                        <span>중국어 발음 트레이닝</span>
+                        <img src="../img/spoon_4.jpg" alt="뉴스로 배우는 영어 이미지">
+                        <span>뉴스로 배우는 영어</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img4.png" alt="클래스 4">
-                        <span>경제 뉴스 요약</span>
+                        <img src="../img/spoon_5.jpg" alt="비즈니스 이메일 이미지">
+                        <span>비즈니스 이메일</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img5.png" alt="클래스 5">
-                        <span>클래식 입문</span>
+                        <img src="../img/spoon_6.jpg" alt="문법 한스푼 이미지">
+                        <span>문법 한스푼</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div> -->
+    <!-- </section> -->
 
     <!-- HOT Marquee -->
-    <section id="hot" class="section alt">
+    <!-- <section id="hot" class="section alt">
         <div class="container">
-            <h2 class="section-title">🔥HOT 일본어</h2>
+            <h2 class="section-title">🔥오늘의 추천</h2>
             <div class="marquee" data-speed="30">
                 <div class="marquee-track">
                     <div class="marquee-item">
-                        <img src="../img/img2.png" alt="HOT 1">
-                        <span>여행 일본어 필수표현</span>
+                        <img src="../img/spoon_7.jpg" alt="원어민처럼 인사하기 이미지">
+                        <span>원어민처럼 인사하기</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img1.png" alt="HOT 2">
-                        <span>회화 패턴 100</span>
+                        <img src="../img/spoon_3.jpg" alt="꼭 쓰는 패턴 100 이미지">
+                        <span>꼭 쓰는 패턴 100</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img4.png" alt="HOT 3">
-                        <span>일본 문화 스낵</span>
+                        <img src="../img/spoon_5.jpg" alt="회의에서 쓰는 표현 이미지">
+                        <span>회의에서 쓰는 표현</span>
                     </div>
                     <div class="marquee-item">
-                        <img src="../img/img3.png" alt="HOT 4">
-                        <span>한자 마스터</span>
+                        <img src="../img/spoon_4.jpg" alt="팟캐스트로 리스닝 이미지">
+                        <span>팟캐스트로 리스닝</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Category grid -->
     <section id="all" class="section">
         <div class="container">
             <div class="grid">
-                <a href="#news" class="card">
-                    <div class="badge">📰 경제 뉴스 요약</div>
-                    <p>핵심만 빠르게, 매일 카톡으로</p>
+                <a href="#all" class="card">
+                    <div class="badge">📬 매일 도착</div>
+                    <p>카톡으로 하루 3분 분량 간편 학습</p>
                 </a>
-                <a href="#travel" class="card">
-                    <div class="badge">✈️ 여행 일본어/문화</div>
-                    <p>여행 준비는 표현 암기부터</p>
+                <a href="#all" class="card">
+                    <div class="badge">🧠 핵심 표현</div>
+                    <p>실전에서 바로 쓰는 패턴 중심</p>
                 </a>
-                <a href="#music" class="card">
-                    <div class="badge">🎼 클래식 음악 입문</div>
-                    <p>오로르와 함께하는 해설</p>
+                <a href="#all" class="card">
+                    <div class="badge">🔊 리스닝 지원</div>
+                    <p>오디오로 듣고 따라 말하기</p>
                 </a>
-                <a href="#knowledge" class="card">
-                    <div class="badge">🎓 넓고얕은지식</div>
-                    <p>한 입에 쏙, 교양 한 스푼</p>
+                <a href="#all" class="card">
+                    <div class="badge">🧩 퀴즈 복습</div>
+                    <p>짧은 퀴즈로 오늘 학습 체크</p>
                 </a>
-                <a href="#books" class="card">
-                    <div class="badge">📖 영어원서</div>
-                    <p>원서로 읽는 영어 습관</p>
+                <a href="#all" class="card">
+                    <div class="badge">📖 원서 한스푼</div>
+                    <p>쉬운 원서로 읽기 습관 만들기</p>
                 </a>
             </div>
         </div>
     </section>
+
+    <!-- Showcase -->
+    <!-- <section id="showcase" class="section alt">
+        <div class="container">
+            <h2 class="section-title">📸 이미지 쇼케이스</h2>
+            <div class="gallery">
+                <img src="../img/spoon_1.jpg" alt="쇼케이스 이미지 1">
+                <img src="../img/spoon_2.jpg" alt="쇼케이스 이미지 2">
+                <img src="../img/spoon_3.jpg" alt="쇼케이스 이미지 3">
+                <img src="../img/spoon_4.jpg" alt="쇼케이스 이미지 4">
+                <img src="../img/spoon_5.jpg" alt="쇼케이스 이미지 5">
+                <img src="../img/spoon_6.jpg" alt="쇼케이스 이미지 6">
+                <img src="../img/spoon_7.jpg" alt="쇼케이스 이미지 7">
+            </div>
+        </div>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -153,22 +157,20 @@
             <div class="footer-top">
                 <div class="brand">DAILY SPOON</div>
                 <div class="socials">
-                    <a href="#" aria-label="instagram" class="sns"></a>
-                    <a href="#" aria-label="twitter" class="sns"></a>
+                    <a href="https://www.instagram.com/daily_spoon_en/" aria-label="instagram" class="sns"></a>
                 </div>
             </div>
-            <p class="muted">대한민국 1등 카톡으로 받는 클래스🥇</p>
-            <p class="muted">단체 수강 및 기타 문의 : contact@dailycookie.co.kr</p>
+            <p class="muted">매일 카톡으로 영어 한스푼 🥄</p>
             <div class="biz">
-                <p>사업자 등록번호 : 631-35-01222 | 법인명(상호) : 에어로원격평생교육원 | 대표자(성명) : 이유성</p>
-                <p>통신판매번호: 2023-서울종로-1184 | 주소: 서울특별시 마포구 양화로 161, 804호 | 대표 번호: 070-4570-8126</p>
-                <p class="links"><a href="#">이용약관</a> · <a href="#">개인정보처리방침</a></p>
+                <p>사업자 등록번호 : 794-62-00743 | 법인명(상호) : 이에스씨 | 대표자(성명) : 이정숙</p>
+                <p>통신판매번호: 2024-서울성동-1372 | 주소: 서울특별시 강남구 테헤란로70길 12, 402-51A호(대치동, H타워)</p>
+                <!-- <p class="links"><a href="#">이용약관</a> · <a href="#">개인정보처리방침</a></p> -->
             </div>
-            <p class="copy">Copyright ⓒ 2025 데일리쿠키 - 대한민국 1위 카톡교육 All rights reserved.</p>
+            <p class="copy">Copyright ⓒ 2025 이에스씨 All rights reserved.</p>
         </div>
     </footer>
 
     <script src="./script.js"></script>
 </body>
-</html>
 
+</html>
