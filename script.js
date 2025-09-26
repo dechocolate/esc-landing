@@ -270,8 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ctaButton) {
         ctaButton.addEventListener('click', function() {
             // Open Kakao Open Chat in a new tab immediately
-            const kakaoUrl = 'https://docs.google.com/forms/d/1KNjL3A-p0e5U6jiuOCArirkPcEz0uEiJYyR6QjpPJSw/edit';
-            window.open(kakaoUrl, '_blank');
+            const kakaoUrl = 'https://web.classy.social/sign-up';
+            window.open(kakaoUrl, '_self');
 
             // Optional: visual feedback on current page
             const ripple = document.createElement('span');
